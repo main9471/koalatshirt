@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koala t-shirt</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="./img/logo.png" class="logo">
+        <nav>
+            <a href="">About us</a>
+            <a href="">Products</a>
+            <a href="">Contact</a>
+        </nav>
+    </header>
+    <banner>
+        <img src="./img/t-shirt.png" class="img">
+    </banner>
+    <main>
+        <section>
+            <div class="title">
+                <h2>About<br>Koala T-shirt</h2>
+            </div>
+            <p>
+                Founded in 1992 by Koah La and Tee Shar, Koala T-shirt began as a small shop in Sydney CBD. We sell
+                quality, affordable t-shirts for kids, men, women, and plus sizes.
+                All items are carefully selected and sourced from T-shirt4All in Cabramatta.
+                Our goal is to bring comfort, style, and friendly service to every customer — now available online for
+                your convenience.
+            </p>
+        </section>
+        <section>
+            <div class="title">
+                <h2>Categories</h2>
+            </div>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="./img/kids.jpg" alt="Kids" class="img3">
+                    <a href="#" class="next-btn">KIDS</a>
+
+                </div>
+                <div class="slide">
+                    <img src="./img/women.jpg" alt="Women" class="img3">
+                    <a href="#" class="next-btn">WOMEN</a>
+                </div>
+                <div class="slide">
+                    <img src="./img/mens.jpg" alt="Men" class="img3">
+                    <a href="#" class="next-btn">MEN</a>
+                </div>
+                <div class="slide">
+                    <img src="./img/etralarge.jpg" alt="Extra Large" class="img3">
+                    <a href="#" class="next-btn">EXTRA LARGE</a>
+                </div>
+                <a class="prev">&#10094;</a> <!-- ← -->
+                <a class="next">&#10095;</a>
+            </div>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <nav class="footer">
+            <a href="index.html">Home</a>
+            <a href="#">Products</a>
+            <a href="privacypolicy.html">Policies</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </nav>
+        <p class="information">Contact: info@koalatshirt.com</p>
+        <small>&copy; 2025 Koala T-shirt. All rights reserved.</small>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = index;
+            slides[currentIndex].classList.add("active");
+        }
+
+        function showNextSlide() {
+            let nextIndex = (currentIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+
+        // 最初のスライドを表示
+        showSlide(0);
+
+        // 各ボタンにクリックイベントを設定
+        const buttons = document.querySelectorAll(".next-btn");
+        buttons.forEach(btn => {
+            btn.addEventListener("click", showNextSlide);
+        });
+        document.querySelector(".prev").addEventListener("click", () => {
+            let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        });
+
+        document.querySelector(".next").addEventListener("click", () => {
+            let nextIndex = (currentIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        });
+
+    </script>
+
+</body>
+
+</html>
